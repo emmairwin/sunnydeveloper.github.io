@@ -143,7 +143,7 @@
     }
 
     .details {
-      margin-top: -3.5rem;
+      margin-top: 1rem;
       max-width: 1400px;
       margin-left: auto;
       margin-right: auto;
@@ -170,7 +170,7 @@
     }
 
     .subskills {
-      display: none;
+      display: block; /* Always show subskills */
       margin-top: 0.5rem;
       font-size: 0.95em;
       color: #181818;
@@ -228,17 +228,16 @@
       gap: 1.5rem;
       justify-content: center;
       align-items: flex-start;
-      flex-wrap: nowrap; /* Prevent wrapping on desktop */
+      flex-wrap: wrap;
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 1rem;
-      position: relative; /* Add this for absolute positioning context */
     }
     
     .skills-column {
-      flex: 0 0 auto;
-      min-width: 0; /* Allow columns to shrink */
-      width: 320px;
+      flex: 0 1 calc(25% - 1.125rem);
+      min-width: 320px;
+      max-width: calc(25% - 1.125rem);
       text-align: center;
     }
     
@@ -247,7 +246,11 @@
       padding: 0.5rem;
       border-radius: 8px;
       position: relative;
-      display: none; /* Hide skills by default */
+      display: block; /* Show all skills by default */
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e0e0e0;
+      margin-bottom: 1rem;
     }
     
     .skills-column .skill.open {
@@ -255,77 +258,9 @@
     }
     
     .skills-column .skill strong {
-      padding: 0.5rem 0;
+      padding: 0.5rem 0 0.5rem 1rem;
       line-height: 1.3;
-    }
-    
-    /* Expand the open skill section */
-    .skills-column .skill.open {
-      display: block; /* Show when open */
-      position: absolute;
-      width: 400px;
-      max-width: 90vw;
-      background: #fff;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      z-index: 10;
-      padding: 1.5rem;
-      top: 1rem;
-      animation: slideIn 0.3s ease-out;
-    }
-    
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* When showing all skills, use different layout */
-    .skills-columns.show-all .skills-column .skill.open {
-      position: relative;
-      width: auto;
-      max-width: none;
-      left: auto;
-      top: auto;
-      margin-bottom: 1rem;
-    }
-    
-    /* Adjust columns layout when showing all */
-    .skills-columns.show-all {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      max-width: 1500px;
-      justify-content: center;
-    }
-    
-    .skills-columns.show-all .skills-column {
-      flex: 0 1 calc(25% - 1.125rem);
-      max-width: calc(25% - 1.125rem);
-      min-width: 320px;
-    }
-    
-    /* Center the expanded skill based on which column it's in */
-    .skills-column:nth-child(1) .skill.open {
-      left: -60px;
-    }
-    
-    .skills-column:nth-child(2) .skill.open {
-      left: -60px;
-    }
-    
-    .skills-column:nth-child(3) .skill.open {
-      left: -60px;
-    }
-    
-    .skills-column:nth-child(4) .skill.open {
-      left: -60px;
+      cursor: default; /* Remove pointer cursor */
     }
     
     /* Responsive design */
@@ -335,16 +270,9 @@
         max-width: 1300px;
       }
       .skills-column {
-        width: 300px;
-      }
-      
-      /* Show all: still 4 columns but smaller */
-      .skills-columns.show-all {
-        max-width: 1400px;
-      }
-      .skills-columns.show-all .skills-column {
         flex: 0 1 calc(25% - 0.9rem);
         min-width: 300px;
+        max-width: calc(25% - 0.9rem);
       }
     }
     
@@ -354,16 +282,9 @@
         max-width: 1200px;
       }
       .skills-column {
-        width: 280px;
-      }
-      
-      /* Show all: still 4 columns but smaller */
-      .skills-columns.show-all {
-        max-width: 1300px;
-      }
-      .skills-columns.show-all .skills-column {
         flex: 0 1 calc(25% - 0.75rem);
         min-width: 280px;
+        max-width: calc(25% - 0.75rem);
       }
     }
     
@@ -373,47 +294,9 @@
         max-width: 900px;
       }
       .skills-column {
-        width: 200px;
-      }
-      
-      /* Show all: still 4 columns but smaller */
-      .skills-columns.show-all {
-        max-width: 1000px;
-      }
-      .skills-columns.show-all .skills-column {
-        flex: 0 1 calc(25% - 1.125rem);
-        min-width: 220px;
-      }
-    }
-    
-    @media (max-width: 1024px) {
-      .skills-columns {
-        gap: 1rem;
-        max-width: 800px;
-      }
-      .skills-column {
-        width: 180px;
-      }
-      
-      /* Show all: still 4 columns but even smaller */
-      .skills-columns.show-all {
-        max-width: 900px;
-      }
-      .skills-columns.show-all .skills-column {
-        flex: 0 1 calc(25% - 0.75rem);
-        min-width: 200px;
-      }
-    }
-    
-    @media (max-width: 900px) {
-      /* Show all: switch to 2 columns */
-      .skills-columns.show-all {
-        max-width: 600px;
-      }
-      .skills-columns.show-all .skills-column {
         flex: 0 1 calc(50% - 0.75rem);
+        min-width: 250px;
         max-width: calc(50% - 0.75rem);
-        min-width: 280px;
       }
     }
     
@@ -424,28 +307,10 @@
         flex-wrap: wrap;
       }
       .skills-column {
-        min-width: auto;
-        max-width: none;
-      }
-      
-      /* Show all: single column on mobile */
-      .skills-columns.show-all {
-        flex-direction: column;
-        max-width: none;
-      }
-      .skills-columns.show-all .skills-column {
         flex: none;
-        max-width: none;
         min-width: auto;
-      }
-      
-      /* Reset positioning for mobile */
-      .skills-column .skill.open {
-        position: relative;
-        width: auto;
         max-width: none;
-        left: auto;
-        margin-top: 0;
+        width: 100%;
       }
     }
   
@@ -457,131 +322,13 @@
   <span class="gradient-text">Emma Irwin - Open Everything</span>
  </h1>
   <div class="intro-text">
-    <p style="text-align: center; color: #666; font-size: 0.9em; margin-bottom: 0.5rem;">Click each tool to explore my expertise areas</p>
-    <p style="text-align: center; margin-bottom: 1rem;">
-      <button id="showAllBtn" onclick="showAllSkills()" style="background: none; border: 1px solid #ad1457; color: #ad1457; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8em; transition: all 0.3s ease;">
-        Show All Areas
-      </button>
-    </p>
+    <p style="text-align: center; color: #666; font-size: 0.9em; margin-bottom: 1rem;">My expertise areas</p>
   </div>
-<!-- Swiss Army Knife SVG - 75% smaller (50% of 50%) -->
-<svg viewBox="0 0 203.125 106.640625">
-  <defs>
-    <filter id="knife-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#333" flood-opacity="0.35"/>
-    </filter>
-    <linearGradient id="knife-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="30%" stop-color="#ad1457"/>
-      <stop offset="100%" stop-color="#C62828"/>
-    </linearGradient>
-    <linearGradient id="tool-silver-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e8e8e8"/>
-      <stop offset="20%" stop-color="#d0d0d0"/>
-      <stop offset="80%" stop-color="#b0b0b0"/>
-      <stop offset="100%" stop-color="#909090"/>
-    </linearGradient>
-    <linearGradient id="tool-silver-hover-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#d5d5d5"/>
-      <stop offset="20%" stop-color="#c8c8c8"/>
-      <stop offset="80%" stop-color="#b0b0b0"/>
-      <stop offset="100%" stop-color="#a0a0a0"/>
-    </linearGradient>
-    <linearGradient id="knife-body-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c41e3a"/>
-      <stop offset="20%" stop-color="#a91b32"/>
-      <stop offset="80%" stop-color="#8b1629"/>
-      <stop offset="100%" stop-color="#6d1120"/>
-    </linearGradient>
-    <linearGradient id="knife-side-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#8b1629"/>
-      <stop offset="100%" stop-color="#5a0e1a"/>
-    </linearGradient>
-    <linearGradient id="knife-top-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#d4243e"/>
-      <stop offset="100%" stop-color="#c41e3a"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Swiss Army Knife Body with 3D effect -->
-  
-  <!-- Bottom/side face for 3D effect -->
-  <rect x="50" y="38.828125" width="132.03125" height="25.390625" rx="5.078125" fill="url(#knife-side-gradient)" filter="url(#knife-shadow)" />
-  
-  <!-- Top face for 3D effect -->
-  <rect x="48.75" y="37.578125" width="132.03125" height="25.390625" rx="5.078125" fill="url(#knife-top-gradient)" />
-  
-  <!-- Main body -->
-  <rect x="48.75" y="37.578125" width="132.03125" height="24.140625" rx="5.078125" fill="url(#knife-body-gradient)" />
-  
-  <!-- Generic brand emblem (avoid trademark issues) -->
-  <circle cx="170.625" cy="48.75" r="3" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="0.25"/>
-  <text x="170.625" y="50" text-anchor="middle" font-family="'Open Sans', 'Segoe UI', Arial, sans-serif" font-size="1.75" font-weight="600" fill="white" opacity="0.8">OPEN</text>
-  
-  <!-- Characteristic ridges/grooves -->
-  <line x1="55" y1="41.25" x2="165" y2="41.25" stroke="rgba(0,0,0,0.2)" stroke-width="0.25"/>
-  <line x1="55" y1="42.5" x2="165" y2="42.5" stroke="rgba(255,255,255,0.3)" stroke-width="0.25"/>
-  <line x1="55" y1="57.5" x2="165" y2="57.5" stroke="rgba(255,255,255,0.3)" stroke-width="0.25"/>
-  <line x1="55" y1="58.75" x2="165" y2="58.75" stroke="rgba(0,0,0,0.2)" stroke-width="0.25"/>
-  
-  <!-- Center groove for tools -->
-  <rect x="48.75" y="49.5" width="132.03125" height="0.75" fill="rgba(0,0,0,0.1)" rx="0.375"/>
-  
-  <!-- Brand text area -->
-  <rect x="60" y="44.25" width="50" height="5" fill="rgba(0,0,0,0.1)" rx="0.5"/>
-  
-  <text x="114.75" y="51.25" text-anchor="middle" class="knife-label" font-size="1.25">Open code, data, models, education, science</text>
-
-  <!-- Tool 1: Large Knife Blade -->
-  <polygon class="tool" points="55.5,37.578125 48.5,10 52.5,6.25 56.5,10 69.5,37.578125" 
-    onclick="toggleSkill('skill1')">
-    <title>Build on the Work of Others</title>
-  </polygon>
-
-  <!-- Tool 2: Small Knife -->
-  <polygon class="tool" points="66.5,37.578125 62,15 63.75,11.25 65.5,15 72.25,37.578125" 
-    onclick="toggleSkill('skill2')">
-    <title>Invite others to build with you</title>
-  </polygon>
-
-  <!-- Tool 3: Screwdriver -->
-  <polygon class="tool" points="76,37.578125 71.25,17.5 75,13.75 78.75,17.5 86.5,37.578125" 
-    onclick="toggleSkill('skill3')">
-    <title>Contribute, collaborate and partner</title>
-  </polygon>
-  <!-- Screwdriver tip -->
-  <rect x="73.5" y="13.75" width="3" height="0.75" fill="url(#tool-silver-gradient)" 
-    onclick="toggleSkill('skill3')">
-    <title>Contribute, collaborate and partner</title>
-  </rect>
-
-  <!-- Tool 4: Corkscrew -->
-  <polygon class="tool" points="90,37.578125 82.5,20 86.25,16.25 90,20 103.5,37.578125" 
-    onclick="toggleSkill('skill4')">
-    <title>Pull it all together - strategic program design</title>
-  </polygon>
-  <!-- Corkscrew spiral -->
-  <path class="tool" d="M85,22.5 Q87,21.25 89,22.5 Q87,23.75 85,25 Q87,26.25 89,27.5" 
-    fill="none" stroke="url(#tool-silver-gradient)" stroke-width="0.375"
-    onclick="toggleSkill('skill4')">
-    <title>Pull it all together - strategic program design</title>
-  </path>
-  
-  <!-- Additional Swiss Army Knife details -->
-  <!-- Tool attachment points -->
-  <circle cx="62.5" cy="37.578125" r="0.5" fill="rgba(0,0,0,0.3)"/>
-  <circle cx="69.25" cy="37.578125" r="0.5" fill="rgba(0,0,0,0.3)"/>
-  <circle cx="81.25" cy="37.578125" r="0.5" fill="rgba(0,0,0,0.3)"/>
-  <circle cx="96.75" cy="37.578125" r="0.5" fill="rgba(0,0,0,0.3)"/>
-  
-  <!-- Keyring hole -->
-  <circle cx="178.75" cy="50.25" r="2" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="0.5"/>
-  <circle cx="178.75" cy="50.25" r="1.25" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="0.25"/>
-</svg>
 <div class="details">
  <div class="skills-columns">
   <div class="skills-column">
     <div class="skill" id="skill1">
-      <strong onclick="toggleSkill('skill1')">Build on the Work of Others</strong>
+      <strong>Build on the Work of Others</strong>
        <div class="subskills">
         <div>
           ↳ <span class="submenu-gradient">Taking an open dependency</span>
@@ -621,7 +368,7 @@
   </div>
   <div class="skills-column">
     <div class="skill" id="skill2">
-      <strong onclick="toggleSkill('skill2')">Invite others to build with you!</strong>
+      <strong>Invite others to build with you!</strong>
        <div class="subskills">
         <div>
           ↳ <span class="submenu-gradient">Releasing open content</span>
@@ -653,7 +400,7 @@
   </div>
   <div class="skills-column">
     <div class="skill" id="skill3">
-      <strong onclick="toggleSkill('skill3')">Contribute, collaborate and partner</strong>
+      <strong>Contribute, collaborate and partner</strong>
        <div class="subskills">
         <div>
           ↳ <span class="submenu-gradient">On behalf of a company/organization</span>
@@ -676,7 +423,7 @@
   </div>
   <div class="skills-column">
     <div class="skill" id="skill4">
-      <strong onclick="toggleSkill('skill4')">Pull it all together - strategic program design - OSPOs and beyond</strong>
+      <strong>Pull it all together - strategic program design - OSPOs and beyond</strong>
       <div class="subskills">
         <div>
           ↳ <span class="submenu-gradient">GitHub Organization Management & Standards</span>
@@ -694,7 +441,8 @@
             <li>Open Educational Resources (OER)</li>
             <li>Open Textbooks</li>
             <li>MOOCs</li>
-          <ul>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -702,73 +450,7 @@
 </div>
 
   <script>
-  function toggleSkill(id) {
-    // Close all skills
-    document.querySelectorAll('.skill.open').forEach(el => {
-      el.classList.remove('open');
-    });
-    
-    // Remove active class from all tools
-    document.querySelectorAll('.tool.active').forEach(el => {
-      el.classList.remove('active');
-    });
-    
-    // Toggle the clicked skill
-    const el = document.getElementById(id);
-    el.classList.toggle('open');
-    
-    // If skill is now open, add active class to corresponding tool
-    if (el.classList.contains('open')) {
-      const toolElements = document.querySelectorAll('.tool');
-      const skillNumber = parseInt(id.replace('skill', '')) - 1;
-      if (toolElements[skillNumber]) {
-        toolElements[skillNumber].classList.add('active');
-      }
-    }
-    
-    // Update button text
-    updateShowAllButton();
-  }
-  
-  function showAllSkills() {
-    const btn = document.getElementById('showAllBtn');
-    const allSkills = document.querySelectorAll('.skill');
-    const skillsColumns = document.querySelector('.skills-columns');
-    const isShowingAll = btn.textContent === 'Hide All Areas';
-    
-    if (isShowingAll) {
-      // Hide all skills
-      allSkills.forEach(skill => {
-        skill.classList.remove('open');
-      });
-      document.querySelectorAll('.tool.active').forEach(el => {
-        el.classList.remove('active');
-      });
-      skillsColumns.classList.remove('show-all');
-      btn.textContent = 'Show All Areas';
-    } else {
-      // Show all skills
-      allSkills.forEach(skill => {
-        skill.classList.add('open');
-      });
-      document.querySelectorAll('.tool').forEach(el => {
-        el.classList.add('active');
-      });
-      skillsColumns.classList.add('show-all');
-      btn.textContent = 'Hide All Areas';
-    }
-  }
-  
-  function updateShowAllButton() {
-    const btn = document.getElementById('showAllBtn');
-    const openSkills = document.querySelectorAll('.skill.open');
-    
-    if (openSkills.length === 0) {
-      btn.textContent = 'Show All Areas';
-    } else if (openSkills.length < 4) {
-      btn.textContent = 'Show All Areas';
-    }
-  }
-</script>
+    // JavaScript removed - all skills are now visible by default
+  </script>
 </body>
 </html>
