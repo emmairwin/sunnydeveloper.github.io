@@ -65,8 +65,8 @@
 
     /* Enhanced hover effect */
     .tool:hover {
-      fill: url(#tool-silver-hover-gradient);
-      stroke: #505050;
+      fill: url(#tool-silver-gradient);
+      stroke: #404040;
       stroke-width: 2;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
       transform: translateY(-1px);
@@ -75,8 +75,8 @@
     
     /* Keep darker silver fill when tool is active */
     .tool.active {
-      fill: url(#tool-silver-hover-gradient);
-      stroke: #505050;
+      fill: url(#tool-silver-gradient);
+      stroke: #404040;
       stroke-width: 2;
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
     }
@@ -88,13 +88,13 @@
     }
     
     .tool:hover line, .tool:hover rect, .tool:hover circle, .tool:hover polyline, .tool:hover polygon, .tool:hover path {
-      stroke: #505050;
+      stroke: #404040;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
 
     /* Ensure tool detail elements respond to active state */
     .tool.active line, .tool.active rect, .tool.active circle, .tool.active polyline, .tool.active polygon, .tool.active path {
-      stroke: #505050;
+      stroke: #404040;
       filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
     }
 
@@ -211,7 +211,7 @@
 
     .knife-label {
       font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
-      font-size: 14px;
+      font-size: 7px;
       font-weight: 600;
       fill: white;
       letter-spacing: 0.5px;
@@ -458,11 +458,11 @@
       </button>
     </p>
   </div>
- <!-- Change the SVG viewBox to be 30% larger -->
-<svg viewBox="0 0 812.5 426.5625">
+<!-- Swiss Army Knife SVG - 50% smaller -->
+<svg viewBox="0 0 406.25 213.28125">
   <defs>
     <filter id="knife-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#333" flood-opacity="0.35"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#333" flood-opacity="0.35"/>
     </filter>
     <linearGradient id="knife-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="30%" stop-color="#ad1457"/>
@@ -475,10 +475,10 @@
       <stop offset="100%" stop-color="#909090"/>
     </linearGradient>
     <linearGradient id="tool-silver-hover-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c0c0c0"/>
-      <stop offset="20%" stop-color="#a8a8a8"/>
-      <stop offset="80%" stop-color="#808080"/>
-      <stop offset="100%" stop-color="#606060"/>
+      <stop offset="0%" stop-color="#d5d5d5"/>
+      <stop offset="20%" stop-color="#c8c8c8"/>
+      <stop offset="80%" stop-color="#b0b0b0"/>
+      <stop offset="100%" stop-color="#a0a0a0"/>
     </linearGradient>
     <linearGradient id="knife-body-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#c41e3a"/>
@@ -499,79 +499,77 @@
   <!-- Swiss Army Knife Body with 3D effect -->
   
   <!-- Bottom/side face for 3D effect -->
-  <rect x="200" y="155.3125" width="528.125" height="101.5625" rx="20.3125" fill="url(#knife-side-gradient)" filter="url(#knife-shadow)" />
+  <rect x="100" y="77.65625" width="264.0625" height="50.78125" rx="10.15625" fill="url(#knife-side-gradient)" filter="url(#knife-shadow)" />
   
   <!-- Top face for 3D effect -->
-  <rect x="195" y="150.3125" width="528.125" height="101.5625" rx="20.3125" fill="url(#knife-top-gradient)" />
+  <rect x="97.5" y="75.15625" width="264.0625" height="50.78125" rx="10.15625" fill="url(#knife-top-gradient)" />
   
   <!-- Main body -->
-  <rect x="195" y="150.3125" width="528.125" height="96.5625" rx="20.3125" fill="url(#knife-body-gradient)" />
+  <rect x="97.5" y="75.15625" width="264.0625" height="48.28125" rx="10.15625" fill="url(#knife-body-gradient)" />
   
   <!-- Generic brand emblem (avoid trademark issues) -->
-  <circle cx="682.5" cy="195" r="12" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-  <text x="682.5" y="200" text-anchor="middle" font-family="'Open Sans', 'Segoe UI', Arial, sans-serif" font-size="7" font-weight="600" fill="white" opacity="0.8">OPEN</text>
+  <circle cx="341.25" cy="97.5" r="6" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <text x="341.25" y="100" text-anchor="middle" font-family="'Open Sans', 'Segoe UI', Arial, sans-serif" font-size="3.5" font-weight="600" fill="white" opacity="0.8">OPEN</text>
   
   <!-- Characteristic ridges/grooves -->
-  <line x1="220" y1="165" x2="660" y2="165" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
-  <line x1="220" y1="170" x2="660" y2="170" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-  <line x1="220" y1="230" x2="660" y2="230" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-  <line x1="220" y1="235" x2="660" y2="235" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
+  <line x1="110" y1="82.5" x2="330" y2="82.5" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+  <line x1="110" y1="85" x2="330" y2="85" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <line x1="110" y1="115" x2="330" y2="115" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <line x1="110" y1="117.5" x2="330" y2="117.5" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
   
   <!-- Center groove for tools -->
-  <rect x="195" y="198" width="528.125" height="3" fill="rgba(0,0,0,0.1)" rx="1.5"/>
+  <rect x="97.5" y="99" width="264.0625" height="1.5" fill="rgba(0,0,0,0.1)" rx="0.75"/>
   
   <!-- Brand text area -->
-  <rect x="240" y="177" width="200" height="20" fill="rgba(0,0,0,0.1)" rx="2"/>
+  <rect x="120" y="88.5" width="100" height="10" fill="rgba(0,0,0,0.1)" rx="1"/>
   
-  <text x="459" y="205" text-anchor="middle" class="knife-label">Open code, data, models, education, science</text>
-  <text x="459" y="205" text-anchor="middle" class="knife-label">Open code, data, models, education, science</text>
-<!-- ...existing code... -->
+  <text x="229.5" y="102.5" text-anchor="middle" class="knife-label" font-size="2.5">Open code, data, models, education, science</text>
 
   <!-- Tool 1: Large Knife Blade -->
-  <polygon class="tool" points="222,150.3125 194,40 210,25 226,40 278,150.3125" 
+  <polygon class="tool" points="111,75.15625 97,20 105,12.5 113,20 139,75.15625" 
     onclick="toggleSkill('skill1')">
     <title>Build on the Work of Others</title>
   </polygon>
 
   <!-- Tool 2: Small Knife -->
-  <polygon class="tool" points="266,150.3125 248,60 255,45 262,60 289,150.3125" 
+  <polygon class="tool" points="133,75.15625 124,30 127.5,22.5 131,30 144.5,75.15625" 
     onclick="toggleSkill('skill2')">
     <title>Invite others to build with you</title>
   </polygon>
 
   <!-- Tool 3: Screwdriver -->
-  <polygon class="tool" points="304,150.3125 285,70 300,55 315,70 346,150.3125" 
+  <polygon class="tool" points="152,75.15625 142.5,35 150,27.5 157.5,35 173,75.15625" 
     onclick="toggleSkill('skill3')">
     <title>Contribute, collaborate and partner</title>
   </polygon>
   <!-- Screwdriver tip -->
-  <rect x="294" y="55" width="12" height="3" fill="url(#tool-silver-gradient)" 
+  <rect x="147" y="27.5" width="6" height="1.5" fill="url(#tool-silver-gradient)" 
     onclick="toggleSkill('skill3')">
     <title>Contribute, collaborate and partner</title>
   </rect>
 
   <!-- Tool 4: Corkscrew -->
-  <polygon class="tool" points="360,150.3125 330,80 345,65 360,80 414,150.3125" 
+  <polygon class="tool" points="180,75.15625 165,40 172.5,32.5 180,40 207,75.15625" 
     onclick="toggleSkill('skill4')">
     <title>Pull it all together - strategic program design</title>
   </polygon>
   <!-- Corkscrew spiral -->
-  <path class="tool" d="M340,90 Q348,85 356,90 Q348,95 340,100 Q348,105 356,110" 
-    fill="none" stroke="url(#tool-silver-gradient)" stroke-width="1.5"
+  <path class="tool" d="M170,45 Q174,42.5 178,45 Q174,47.5 170,50 Q174,52.5 178,55" 
+    fill="none" stroke="url(#tool-silver-gradient)" stroke-width="0.75"
     onclick="toggleSkill('skill4')">
     <title>Pull it all together - strategic program design</title>
   </path>
   
   <!-- Additional Swiss Army Knife details -->
   <!-- Tool attachment points -->
-  <circle cx="250" cy="150.3125" r="2" fill="rgba(0,0,0,0.3)"/>
-  <circle cx="277" cy="150.3125" r="2" fill="rgba(0,0,0,0.3)"/>
-  <circle cx="325" cy="150.3125" r="2" fill="rgba(0,0,0,0.3)"/>
-  <circle cx="387" cy="150.3125" r="2" fill="rgba(0,0,0,0.3)"/>
+  <circle cx="125" cy="75.15625" r="1" fill="rgba(0,0,0,0.3)"/>
+  <circle cx="138.5" cy="75.15625" r="1" fill="rgba(0,0,0,0.3)"/>
+  <circle cx="162.5" cy="75.15625" r="1" fill="rgba(0,0,0,0.3)"/>
+  <circle cx="193.5" cy="75.15625" r="1" fill="rgba(0,0,0,0.3)"/>
   
   <!-- Keyring hole -->
-  <circle cx="715" cy="201" r="8" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="2"/>
-  <circle cx="715" cy="201" r="5" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
+  <circle cx="357.5" cy="100.5" r="4" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="1"/>
+  <circle cx="357.5" cy="100.5" r="2.5" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="0.5"/>
 </svg>
 <div class="details">
  <div class="skills-columns">
